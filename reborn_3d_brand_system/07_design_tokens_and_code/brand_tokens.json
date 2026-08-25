@@ -1,0 +1,81 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "brandName": "Dark Reborn 3D",
+  "version": "2.0.0",
+  "colors": {
+    "primary": {
+      "value": "#b81414",
+      "type": "color",
+      "name": "Ruby Laser Red",
+      "description": "Primary action and neon accent color",
+      "cmyk": "C:10 M:98 Y:95 K:20",
+      "pantone": "PMS 186 C"
+    },
+    "primaryLight": {
+      "value": "#ff263b",
+      "type": "color",
+      "name": "Electric Scarlet Flare"
+    },
+    "primaryDark": {
+      "value": "#700808",
+      "type": "color",
+      "name": "Crimson Shadow"
+    },
+    "titanium3D": {
+      "value": "#8f96a3",
+      "type": "color",
+      "name": "Brushed Steel Metallic",
+      "cmyk": "C:35 M:25 Y:20 K:10",
+      "pantone": "Cool Gray 8 C"
+    },
+    "platinumHighlight": {
+      "value": "#f5f7fa",
+      "type": "color",
+      "name": "Platinum Bevel Highlight"
+    },
+    "backgroundBase": {
+      "value": "#060709",
+      "type": "color",
+      "name": "Obsidian Deep"
+    },
+    "surfaceCard": {
+      "value": "#0f1218",
+      "type": "color",
+      "name": "Graphite Plate"
+    },
+    "surfaceElevated": {
+      "value": "#161a23",
+      "type": "color",
+      "name": "Armor Slate"
+    },
+    "borderMuted": {
+      "value": "rgba(255, 255, 255, 0.08)",
+      "type": "color"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": "'Orbitron', -apple-system, sans-serif",
+      "body": "'Rajdhani', -apple-system, sans-serif",
+      "code": "'JetBrains Mono', monospace"
+    },
+    "fontWeight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    }
+  },
+  "shadows": {
+    "glowRedSm": "0 0 15px rgba(184, 20, 20, 0.35)",
+    "glowRedLg": "0 0 45px rgba(184, 20, 20, 0.55)",
+    "card3D": "0 20px 40px rgba(0, 0, 0, 0.6)"
+  },
+  "radii": {
+    "sm": "6px",
+    "md": "12px",
+    "lg": "20px",
+    "pill": "9999px"
+  }
+}

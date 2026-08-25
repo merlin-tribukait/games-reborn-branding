@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK REBORN 3D — Flagship Competitive Gaming & Esports Platform</title>
+    <link rel="icon" type="image/png" href="reborn_3d_brand_system/03_app_icons_favicons/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reborn_3d_brand_system/07_design_tokens_and_code/brand_styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--dr-font-body);
+            background: var(--dr-bg-base);
+            color: #e2e6f0;
+            overflow-x: hidden;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Top Announcement / Guidebook Bar */
+        .top-bar {
+            background: #040507;
+            border-bottom: 1px solid var(--dr-border);
+            padding: 8px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--dr-font-display);
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+        }
+        .top-bar a {
+            color: var(--dr-primary-light);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(6, 7, 9, 0.94);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--dr-border);
+            padding: 0 50px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand img {
+            height: 42px;
+            filter: drop-shadow(0 0 10px var(--dr-primary-glow));
+        }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        .nav-links a {
+            color: #9aa2b4;
+            text-decoration: none;
+            font-family: var(--dr-font-display);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.25s;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            padding: 90px 40px 120px;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(184, 20, 20, 0.25) 0%, rgba(6, 7, 9, 0.98) 75%);
+            z-index: 1;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero-banner-frame {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto 35px;
+            border-radius: 18px;
+            padding: 12px;
+            background: rgba(22, 26, 35, 0.6);
+            border: 1px solid var(--dr-border);
+            box-shadow: 0 0 60px var(--dr-primary-glow);
+            backdrop-filter: blur(12px);
+        }
+        .hero-banner-frame img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+        .hero-title {
+            font-family: var(--dr-font-display);
+            font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+            font-weight: 900;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 35px var(--dr-primary-glow);
+        }
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: #9aa2b4;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 45px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--dr-border);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-family: var(--dr-font-display);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--dr-transition);
+        }
+        .btn-secondary:hover {
+            border-color: var(--dr-primary);
+            color: var(--dr-primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* HARDWARE & SETUP SECTION */
+        .battlestation-sec {
+            padding: 120px 50px;
+            background: var(--dr-bg-surface);
+            border-top: 1px solid var(--dr-border);
+            border-bottom: 1px solid var(--dr-border);
+        }
+        .sec-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        .sec-label {
+            color: var(--dr-primary-light);
+            font-family: var(--dr-font-display);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .sec-title {
+            font-family: var(--dr-font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        .sec-desc {
+            color: #8f96a3;
+            font-size: 1.15rem;
+        }
+
+        .showcase-dual {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .showcase-media {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--dr-border);
+            box-shadow: var(--dr-shadow-glow);
+        }
+        .showcase-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .showcase-content h3 {
+            font-family: var(--dr-font-display);
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .showcase-content p {
+            color: #8f96a3;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .spec-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        .spec-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        .spec-list li strong {
+            color: #fff;
+            font-family: var(--dr-font-display);
+            font-size: 0.9rem;
+        }
+
+        /* APPAREL & MERCH SECTION */
+        .apparel-sec {
+            padding: 120px 50px;
+            background: var(--dr-bg-base);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #040507;
+            padding: 80px 50px 40px;
+            border-top: 2px solid var(--dr-primary);
+        }
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+        .footer-brand img {
+            height: 48px;
+            margin-bottom: 20px;
+        }
+        .footer-links h4 {
+            font-family: var(--dr-font-display);
+            color: var(--dr-primary-light);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div>
+        <span>BRAND ARCHITECTURE 2.0 // DARK REBORN 3D</span>
+    </div>
+    <div>
+        <a href="BRAND_GUIDEBOOK.html">📖 View Interactive Brand Guidebook & Download Center →</a>
+    </div>
+</div>
+
+<nav class="navbar">
+    <a href="#" class="nav-brand">
+        <img src="reborn_3d_brand_system/01_vectors_svg/logo_horizontal_wordmark.svg" alt="Dark Reborn 3D">
+    </a>
+    <div class="nav-links">
+        <a href="#hardware">Battlestation Setup</a>
+        <a href="#apparel">Merchandise</a>
+        <a href="BRAND_GUIDEBOOK.html">Brand Kit</a>
+        <a href="index.html">All Site Variants</a>
+    </div>
+    <a href="BRAND_GUIDEBOOK.html" class="dr-btn-primary">Download Brand Kit</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="hero-banner-frame">
+            <img src="reborn_3d_brand_system/06_merch_and_mockups/mockup_cinematic_5k_header.jpg" alt="Dark Reborn 3D 5K Header">
+        </div>
+        <h1 class="hero-title">DARK REBORN</h1>
+        <p class="hero-tagline">Play. Build. Conquer. Reborn.</p>
+        <div class="hero-buttons">
+            <a href="BRAND_GUIDEBOOK.html" class="dr-btn-primary">Open Brand Design System →</a>
+            <a href="#hardware" class="btn-secondary">Explore Battlestation</a>
+        </div>
+    </div>
+</section>
+
+<!-- BATTLESTATION HARDWARE -->
+<section class="battlestation-sec" id="hardware">
+    <div class="sec-header">
+        <span class="sec-label">Physical Hardware Ecosystem</span>
+        <h2 class="sec-title">The Ultimate Battlestation</h2>
+        <p class="sec-desc">Engineered for esports arenas and professional creator streaming rigs.</p>
+    </div>
+
+    <div class="showcase-dual">
+        <div class="showcase-media">
+            <img src="reborn_3d_brand_system/06_merch_and_mockups/mockup_battlestation_desk_setup.png" alt="Battlestation Desk Setup">
+        </div>
+        <div class="showcase-content">
+            <h3>Precision Engineered Rigs</h3>
+            <p>From custom CNC-machined titanium PC enclosures with crimson laser cooling lines to low-friction magnetic desk surfaces emblazoned with the faceted 3D GR shield.</p>
+            <ul class="spec-list">
+                <li>🔴 <strong>OLED Ultrawide Interface:</strong> Custom 240Hz calibrated dashboard HUD</li>
+                <li>🛡️ <strong>Titanium CNC Enclosure:</strong> Ruby liquid cooling perimeter</li>
+                <li>⌨️ <strong>Optical Hall-Effect Keyboard:</strong> Sub-0.1ms rapid trigger switch latency</li>
+            </ul>
+            <a href="BRAND_GUIDEBOOK.html#mockups" class="dr-btn-primary">View Full Render Specs</a>
+        </div>
+    </div>
+</section>
+
+<!-- APPAREL MERCH -->
+<section class="apparel-sec" id="apparel">
+    <div class="sec-header">
+        <span class="sec-label">Pro Wear & Streetwear</span>
+        <h2 class="sec-title">Official Apparel Collection</h2>
+        <p class="sec-desc">High-grade performance esports textiles and luxury heavyweight cotton hoodies.</p>
+    </div>
+
+    <div class="showcase-dual" style="grid-template-columns: 0.8fr 1.2fr;">
+        <div class="showcase-content">
+            <h3>Championship-Grade Merch</h3>
+            <p>Featuring heat-pressed high-gloss chrome 3D emblem transfers with reactive laser red edge piping engineered for international stage tournaments.</p>
+            <ul class="spec-list">
+                <li>✨ <strong>Chrome 3D Chest Crest:</strong> Impact-resistant high-gloss polymer</li>
+                <li>🧵 <strong>Breathable Aero-Mesh:</strong> Anti-static tournament jersey blend</li>
+                <li>🖤 <strong>Heavyweight 450GSM Hoodie:</strong> Deep obsidian matte cotton</li>
+            </ul>
+            <a href="BRAND_GUIDEBOOK.html#mockups" class="dr-btn-primary">Download Merch Mockups</a>
+        </div>
+        <div class="showcase-media">
+            <img src="reborn_3d_brand_system/06_merch_and_mockups/mockup_esports_jersey_hoodie.png" alt="Apparel Collection">
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="reborn_3d_brand_system/01_vectors_svg/logo_horizontal_wordmark.svg" alt="Dark Reborn">
+            <p style="color:#777; font-size:0.95rem; max-width:360px;">The next-generation competitive brand identity system designed for esports championships, gaming hardware, and creator ecosystems.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Brand Package</h4>
+            <ul>
+                <li><a href="BRAND_GUIDEBOOK.html#vectors">Vector SVGs</a></li>
+                <li><a href="BRAND_GUIDEBOOK.html#pngs">4K Transparent PNGs</a></li>
+                <li><a href="BRAND_GUIDEBOOK.html#colors">Color Specs & Pantone</a></li>
+                <li><a href="BRAND_GUIDEBOOK.html#social">Social Media Kit</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Site Variants</h4>
+            <ul>
+                <li><a href="reborn_prime_landing_page.html">Flagship Dark Reborn</a></li>
+                <li><a href="variant1_orange_hex.html">Orange Ember Cyber</a></li>
+                <li><a href="variant2_red_shield.html">Crimson Shield Esports</a></li>
+                <li><a href="index.html">Master Hub</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Ecosystem</h4>
+            <ul>
+                <li><a href="#">Tournament Ladder</a></li>
+                <li><a href="#">Hardware Store</a></li>
+                <li><a href="#">Discord Server</a></li>
+                <li><a href="#">Press Kit</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 DARK REBORN 3D. All brand rights reserved.</p>
+        <p><a href="BRAND_GUIDEBOOK.html" style="color:var(--dr-primary-light); text-decoration:none;">Open Official Brand Guidebook →</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

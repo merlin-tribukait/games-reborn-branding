@@ -1,0 +1,74 @@
+/**
+ * Dark Reborn 3D Brand System - Core CSS Variables & Utility Classes
+ * Version 2.0.0
+ */
+
+:root {
+  /* Brand Colors */
+  --dr-primary: #b81414;
+  --dr-primary-light: #ff263b;
+  --dr-primary-dark: #700808;
+  --dr-primary-glow: rgba(184, 20, 20, 0.45);
+  
+  --dr-metal-light: #f5f7fa;
+  --dr-metal-mid: #8f96a3;
+  --dr-metal-dark: #343c4d;
+
+  --dr-bg-base: #060709;
+  --dr-bg-surface: #0f1218;
+  --dr-bg-elevated: #161a23;
+  --dr-border: rgba(255, 255, 255, 0.08);
+  --dr-border-focus: #b81414;
+
+  /* Typography */
+  --dr-font-display: 'Orbitron', sans-serif;
+  --dr-font-body: 'Rajdhani', sans-serif;
+
+  /* Shadows */
+  --dr-shadow-glow: 0 0 35px var(--dr-primary-glow);
+  --dr-shadow-card: 0 16px 32px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --dr-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Utility Classes */
+.dr-text-glow {
+  text-shadow: 0 0 20px var(--dr-primary-glow);
+}
+
+.dr-card-3d {
+  background: var(--dr-bg-elevated);
+  border: 1px solid var(--dr-border);
+  border-radius: 16px;
+  box-shadow: var(--dr-shadow-card);
+  transition: var(--dr-transition);
+}
+.dr-card-3d:hover {
+  border-color: var(--dr-primary);
+  box-shadow: var(--dr-shadow-glow);
+  transform: translateY(-4px);
+}
+
+.dr-btn-primary {
+  background: linear-gradient(135deg, var(--dr-primary), var(--dr-primary-light));
+  color: #ffffff;
+  font-family: var(--dr-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--dr-shadow-glow);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--dr-transition);
+}
+.dr-btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}

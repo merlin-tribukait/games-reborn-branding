@@ -33,63 +33,6 @@
             line-height: 1.6;
         }
 
-        /* Brand Variant Bar */
-        .brand-switcher-bar {
-            background: rgba(5, 6, 8, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 10px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.78rem;
-            letter-spacing: 1.5px;
-            z-index: 1001;
-            position: relative;
-        }
-        .brand-switcher-title {
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .brand-switcher-title strong {
-            color: var(--accent);
-        }
-        .variant-pills {
-            display: flex;
-            gap: 12px;
-        }
-        .variant-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #aaa;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-        .variant-pill:hover {
-            color: #fff;
-            border-color: var(--accent);
-            transform: translateY(-1px);
-        }
-        .variant-pill.active {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent);
-            color: #fff;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-        .pill-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
         /* Navigation */
         .navbar {
             position: sticky;
@@ -802,42 +745,72 @@
         }
         @media (max-width: 600px) {
             .footer-content { grid-template-columns: 1fr; }
-            .brand-switcher-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+        }
+
+        /* UNIFIED BRAND NAV */
+        .unified-nav {
+            background: #030406;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 0 30px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: auto;
+        }
+        .unified-nav-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #555;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .unified-nav-sep {
+            width: 1px;
+            height: 20px;
+            background: rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+        .unified-nav a {
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #667;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 14px;
+            transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .unified-nav a:hover {
+            color: #ccc;
+            background: rgba(255,255,255,0.05);
+        }
+        .unified-nav a.un-nav-active {
+            color: #fff;
+            background: rgba(255, 140, 0, 0.35);
+            border: 1px solid rgba(255, 140, 0, 0.5);
         }
     </style>
 </head>
 <body>
 
-<!-- Brand Variant Quick Switcher -->
-<div class="brand-switcher-bar">
-    <div class="brand-switcher-title">
-        <span>ACTIVE SITE BRANDING:</span>
-        <strong>Orange Ember Cyber</strong>
-    </div>
-    <div class="variant-pills">
-        
-        <a href="variant1_orange_hex.html" class="variant-pill active">
-            <span class="pill-dot" style="background: #ff8c00;"></span>
-            Orange Ember
-        </a>
-        
-        <a href="variant2_red_shield.html" class="variant-pill ">
-            <span class="pill-dot" style="background: #dc143c;"></span>
-            Crimson Shield
-        </a>
-        
-        <a href="variant3_dark_red.html" class="variant-pill ">
-            <span class="pill-dot" style="background: #8a0303;"></span>
-            Dark Reborn 3D
-        </a>
-        
-        <a href="index.html" class="variant-pill ">
-            <span class="pill-dot" style="background: #ffffff;"></span>
-            Master Hub
-        </a>
-        
-    </div>
-</div>
+<nav class="unified-nav">
+    <span class="unified-nav-label">Brand System</span>
+    <span class="unified-nav-sep"></span>
+    <a href="index.html">Master Hub</a>
+    <a href="BRAND_GUIDEBOOK.html">Brand Guidebook</a>
+    <a href="reborn_prime_landing_page.html">Flagship Landing</a>
+    <a href="variant1_orange_hex.html" class="un-nav-active">Orange Ember</a>
+    <a href="variant2_red_shield.html">Crimson Shield</a>
+    <a href="variant3_dark_red.html">Dark Reborn 3D</a>
+</nav>
 
 <!-- Navigation -->
 <nav class="navbar">

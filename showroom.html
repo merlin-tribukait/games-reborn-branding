@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUAL BRAND SHOWROOM · Merlin Tribukait vs GAMES REBORN</title>
+  <link rel="icon" type="image/x-icon" href="reborn_3d_brand_system/03_favicons_app_icons/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050608;
+      --cyan: #00f0ff;
+      --cyan-glow: rgba(0, 240, 255, 0.4);
+      --crimson: #ff2d55;
+      --crimson-glow: rgba(255, 45, 85, 0.4);
+      --amber: #ffb703;
+      --amber-glow: rgba(255, 183, 3, 0.35);
+      
+      --font-display: 'Orbitron', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: #f0f2f8;
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ambient Dual Lighting Follower */
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(700px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(0, 240, 255, 0.05), rgba(255, 45, 85, 0.05) 50%, transparent 80%);
+      z-index: 0;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(5, 6, 8, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .showroom-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .mode-switch-group {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: #8f96a3;
+      padding: 0.45rem 1.15rem;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .mode-btn.active-dual {
+      background: linear-gradient(90deg, var(--cyan), var(--crimson));
+      color: #000;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.4);
+    }
+    .mode-btn.active-cyan {
+      background: var(--cyan);
+      color: #000;
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+    .mode-btn.active-crimson {
+      background: var(--crimson);
+      color: #fff;
+      box-shadow: 0 0 16px var(--crimson-glow);
+    }
+
+    /* Main Split Showroom Container */
+    .showroom-arena {
+      flex: 1;
+      display: flex;
+      padding-top: 70px;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Side Panes */
+    .side-pane {
+      flex: 1;
+      padding: 3.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+    }
+
+    /* Left Pane: Merlin Tribukait / Architect Core (Good / Cyber Core) */
+    .side-cyan {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.04), rgba(5, 6, 8, 0.98)), #06070a;
+      border-right: 1px solid rgba(0, 240, 255, 0.2);
+    }
+    .side-cyan::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: -150px;
+      width: 450px; height: 450px;
+      background: var(--cyan-glow);
+      filter: blur(160px);
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    /* Right Pane: Games-Reborn / Phoenix Sovereign (Bad / Crimson Chaos) */
+    .side-crimson {
+      background: linear-gradient(135deg, rgba(255, 45, 85, 0.04), rgba(5, 6, 8, 0.98)), #06070a;
+      border-left: 1px solid rgba(255, 45, 85, 0.2);
+    }
+    .side-crimson::before {
+      content: '';
+      position: absolute;
+      bottom: -150px; right: -150px;
+      width: 450px; height: 450px;
+      background: var(--crimson-glow);
+      filter: blur(160px);
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    /* Hover Expansion */
+    @media (min-width: 1024px) {
+      .showroom-arena.hover-cyan .side-cyan { flex: 1.4; background: linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(5, 6, 8, 0.95)); }
+      .showroom-arena.hover-cyan .side-crimson { flex: 0.7; opacity: 0.65; }
+      
+      .showroom-arena.hover-crimson .side-crimson { flex: 1.4; background: linear-gradient(135deg, rgba(255, 45, 85, 0.08), rgba(5, 6, 8, 0.95)); }
+      .showroom-arena.hover-crimson .side-cyan { flex: 0.7; opacity: 0.65; }
+    }
+
+    /* Center Battle Divider */
+    .battle-divider {
+      position: absolute;
+      top: 70px; bottom: 0; left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, var(--cyan), #fff 50%, var(--crimson));
+      transform: translateX(-50%);
+      z-index: 10;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      pointer-events: none;
+    }
+
+    .divider-badge {
+      position: absolute;
+      top: 30%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: #000;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+      pointer-events: auto;
+    }
+
+    /* Side Content Header */
+    .pane-header {
+      margin-bottom: 2rem;
+    }
+
+    .pane-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+    .badge-cyan {
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      box-shadow: 0 0 14px var(--cyan-glow);
+    }
+    .badge-crimson {
+      background: rgba(255, 45, 85, 0.12);
+      border: 1px solid var(--crimson);
+      color: var(--crimson);
+      box-shadow: 0 0 14px var(--crimson-glow);
+    }
+
+    .pane-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .title-cyan {
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .title-crimson {
+      background: linear-gradient(135deg, #ffffff 40%, var(--crimson) 80%, var(--amber));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pane-desc {
+      color: #9da3b4;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 540px;
+    }
+
+    /* 3D Crest Presentation Box (No Background Box!) */
+    .crest-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .crest-img-container {
+      width: clamp(200px, 22vw, 320px);
+      height: clamp(200px, 22vw, 320px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .crest-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.9));
+      transition: filter 0.3s ease;
+    }
+
+    .side-cyan .crest-img-container:hover img {
+      filter: drop-shadow(0 0 35px var(--cyan-glow)) drop-shadow(0 15px 40px rgba(0,0,0,0.9));
+      transform: scale(1.05);
+    }
+    .side-crimson .crest-img-container:hover img {
+      filter: drop-shadow(0 0 40px var(--crimson-glow)) drop-shadow(0 15px 40px rgba(0,0,0,0.9));
+      transform: scale(1.05);
+    }
+
+    /* Specifications & Action Buttons */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .spec-card {
+      background: rgba(10, 11, 16, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      backdrop-filter: blur(12px);
+    }
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #656982;
+      text-transform: uppercase;
+    }
+    .spec-val {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-cyan {
+      background: linear-gradient(135deg, var(--cyan), #00a8ff);
+      color: #000;
+      box-shadow: 0 4px 20px var(--cyan-glow);
+    }
+    .btn-cyan:hover {
+      box-shadow: 0 8px 30px rgba(0, 240, 255, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .btn-crimson {
+      background: linear-gradient(135deg, var(--crimson), #c00028);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--crimson-glow);
+    }
+    .btn-crimson:hover {
+      box-shadow: 0 8px 30px rgba(255, 45, 85, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .showroom-arena { flex-direction: column; }
+      .battle-divider { display: none; }
+      .side-pane { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="spotlight"></div>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="showroom-title">
+      <span>⚡ DUAL BRAND SHOWROOM</span>
+    </div>
+    
+    <div class="mode-switch-group">
+      <button class="mode-btn active-dual" id="btnDual" onclick="setMode('dual')">DUAL SYNERGY</button>
+      <button class="mode-btn" id="btnCyan" onclick="setMode('cyan')">SYSTEMS CORE (CYAN)</button>
+      <button class="mode-btn" id="btnCrimson" onclick="setMode('crimson')">GAMES REBORN (FIRE)</button>
+    </div>
+
+    <div>
+      <a href="index.html" class="btn-ghost" style="padding: 0.45rem 1rem; font-size: 0.78rem; text-decoration: none; border-radius: 8px;">← Back to Hub</a>
+    </div>
+  </header>
+
+  <!-- Showroom Arena -->
+  <main class="showroom-arena" id="arena">
+    <!-- Battle Divider -->
+    <div class="battle-divider"></div>
+    <div class="divider-badge">VS</div>
+
+    <!-- LEFT SIDE: MERLIN TRIBUKAIT (CYBER CORE / LIGHT / ARCHITECT) -->
+    <section class="side-pane side-cyan" id="paneCyan">
+      <div class="pane-header">
+        <div class="pane-badge badge-cyan">● SIDE A · THE ARCHITECT CORE</div>
+        <h1 class="pane-title title-cyan">MERLIN TRIBUKAIT</h1>
+        <p class="pane-desc">
+          High-performance C++17 game daemon engineering, non-blocking asynchronous socket framing, 541 reverse-engineered opcodes, and deterministic system scaling.
+        </p>
+      </div>
+
+      <div class="crest-display">
+        <div class="crest-img-container" onclick="triggerSound('cyan')">
+          <img src="/merlin_tribukait_transparent.png" alt="Merlin Tribukait 3D Crest Cutout">
+        </div>
+      </div>
+
+      <div>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Aesthetic</div>
+            <div class="spec-val" style="color: var(--cyan);">Cyber-Glass Titanium</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Primary Glow</div>
+            <div class="spec-val">#00F0FF (Neon Cyan)</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Specialty</div>
+            <div class="spec-val">C++17 / Low-Level Intel</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">GitHub Repo</div>
+            <div class="spec-val">merlin-tribukait-branding</div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <a href="https://merlin-tribukait.com" target="_blank" class="btn-cyan" style="padding: 0.65rem 1.25rem; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 8px;">Visit merlin-tribukait.com</a>
+          <a href="https://github.com/merlin-tribukait/merlin-tribukait-branding" target="_blank" class="btn-ghost" style="padding: 0.65rem 1.25rem; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 8px;">GitHub Assets</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT SIDE: GAMES-REBORN (PHOENIX SOVEREIGN / DARK / REBORN NETWORK) -->
+    <section class="side-pane side-crimson" id="paneCrimson">
+      <div class="pane-header">
+        <div class="pane-badge badge-crimson">★ SIDE B · THE PHOENIX SOVEREIGN</div>
+        <h1 class="pane-title title-crimson">GAMES REBORN</h1>
+        <p class="pane-desc">
+          Next-generation multi-realm MMORPG gaming network. High-concurrency cluster mesh, real-time GM telemetry, cross-realm PvP battlegrounds, and e-commerce portal.
+        </p>
+      </div>
+
+      <div class="crest-display">
+        <div class="crest-img-container" onclick="triggerSound('crimson')">
+          <img src="/games_reborn_transparent.png" alt="Games Reborn 3D Phoenix Crest Cutout">
+        </div>
+      </div>
+
+      <div>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Aesthetic</div>
+            <div class="spec-val" style="color: var(--crimson);">Dark Reborn 3D Chrome</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Primary Glow</div>
+            <div class="spec-val">#FF2D55 (Laser Crimson)</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Platform</div>
+            <div class="spec-val">MMORPG Multi-Realm</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">GitHub Repo</div>
+            <div class="spec-val">games-reborn-branding</div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <a href="https://games-reborn.com" target="_blank" class="btn-crimson" style="padding: 0.65rem 1.25rem; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 8px;">Visit games-reborn.com</a>
+          <a href="https://github.com/merlin-tribukait/games-reborn-branding" target="_blank" class="btn-ghost" style="padding: 0.65rem 1.25rem; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-decoration: none; border-radius: 8px;">GitHub Assets</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const arena = document.getElementById('arena');
+    const paneCyan = document.getElementById('paneCyan');
+    const paneCrimson = document.getElementById('paneCrimson');
+
+    // Pointer Tracking
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    }, { passive: true });
+
+    // Hover dynamic split
+    paneCyan.addEventListener('mouseenter', () => {
+      arena.classList.add('hover-cyan');
+      arena.classList.remove('hover-crimson');
+    });
+    paneCrimson.addEventListener('mouseenter', () => {
+      arena.classList.add('hover-crimson');
+      arena.classList.remove('hover-cyan');
+    });
+    arena.addEventListener('mouseleave', () => {
+      arena.classList.remove('hover-cyan', 'hover-crimson');
+    });
+
+    // Audio Engine
+    let audioCtx = null;
+    function getAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function triggerSound(type) {
+      try {
+        const ctx = getAudio();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'cyan') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.exponentialRampToValueAtTime(1760, now + 0.2);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.25);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.3);
+          osc.start(now);
+          osc.stop(now + 0.3);
+        }
+      } catch(e) {}
+    }
+
+    // Mode Switcher
+    function setMode(mode) {
+      document.querySelectorAll('.mode-btn').forEach(b => b.className = 'mode-btn');
+      if (mode === 'dual') {
+        document.getElementById('btnDual').classList.add('active-dual');
+        paneCyan.style.display = 'flex';
+        paneCrimson.style.display = 'flex';
+        paneCyan.style.flex = '1';
+        paneCrimson.style.flex = '1';
+      } else if (mode === 'cyan') {
+        document.getElementById('btnCyan').classList.add('active-cyan');
+        paneCyan.style.display = 'flex';
+        paneCyan.style.flex = '1';
+        paneCrimson.style.display = 'none';
+        triggerSound('cyan');
+      } else if (mode === 'crimson') {
+        document.getElementById('btnCrimson').classList.add('active-crimson');
+        paneCrimson.style.display = 'flex';
+        paneCrimson.style.flex = '1';
+        paneCyan.style.display = 'none';
+        triggerSound('crimson');
+      }
+    }
+  </script>
+</body>
+</html>

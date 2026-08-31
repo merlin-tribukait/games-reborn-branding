@@ -20,6 +20,10 @@
   --dr-border: rgba(255, 255, 255, 0.08);
   --dr-border-focus: #b81414;
 
+  /* Text Colors */
+  --dr-text-primary: #e2e6f0;
+  --dr-text-secondary: #8f96a3;
+
   /* Typography */
   --dr-font-display: 'Orbitron', sans-serif;
   --dr-font-body: 'Rajdhani', sans-serif;

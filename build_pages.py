@@ -295,7 +295,7 @@ def get_landing_page_html(theme):
             text-transform: uppercase;
             letter-spacing: 12px;
             line-height: 1.1;
-            background: linear-gradient(180deg, #ffffff 30%, var(--accent) 100%);
+            background: linear-gradient(180deg, var(--text-main) 30%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 18px;

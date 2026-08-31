@@ -22,7 +22,8 @@
       --crimson-glow: rgba(255, 45, 85, 0.4);
       --amber: #ffb703;
       --amber-glow: rgba(255, 183, 3, 0.35);
-      
+      --text-primary: #e2e6f0;
+
       --font-display: 'Orbitron', 'Audiowide', sans-serif;
       --font-tech: 'Oxanium', 'Rajdhani', sans-serif;
       --font-body: 'Rajdhani', -apple-system, sans-serif;
@@ -182,7 +183,7 @@
       position: absolute;
       top: 70px; bottom: 0; left: 50%;
       width: 2px;
-      background: linear-gradient(180deg, var(--cyan), #fff 50%, var(--crimson));
+      background: linear-gradient(180deg, var(--cyan), var(--text-primary) 50%, var(--crimson));
       transform: translateX(-50%);
       z-index: 10;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
@@ -249,12 +250,12 @@
       text-transform: uppercase;
     }
     .title-cyan {
-      background: linear-gradient(135deg, #ffffff 40%, var(--cyan));
+      background: linear-gradient(135deg, var(--text-primary) 40%, var(--cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .title-crimson {
-      background: linear-gradient(135deg, #ffffff 40%, var(--crimson) 80%, var(--amber));
+      background: linear-gradient(135deg, var(--text-primary) 40%, var(--crimson) 80%, var(--amber));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

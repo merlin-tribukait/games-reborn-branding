@@ -51,6 +51,16 @@
     "borderMuted": {
       "value": "rgba(255, 255, 255, 0.08)",
       "type": "color"
+    },
+    "textPrimary": {
+      "value": "#e2e6f0",
+      "type": "color",
+      "name": "Platinum Frost"
+    },
+    "textSecondary": {
+      "value": "#8f96a3",
+      "type": "color",
+      "name": "Brushed Titanium"
     }
   },
   "typography": {

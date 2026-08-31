@@ -26,6 +26,18 @@
     "border": {
       "value": "rgba(255, 255, 255, 0.08)",
       "type": "color"
+    },
+    "textPrimary": {
+      "value": "#f0f2f8",
+      "type": "color",
+      "name": "Frost White Text",
+      "description": "Primary text color for headings and body copy on dark backgrounds"
+    },
+    "textSecondary": {
+      "value": "#8f96a3",
+      "type": "color",
+      "name": "Titanium Mist",
+      "description": "Secondary/muted text color for captions and metadata"
     }
   },
   "typography": {

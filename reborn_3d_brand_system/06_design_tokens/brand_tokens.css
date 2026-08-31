@@ -1,0 +1,24 @@
+/* GAMES REBORN Design System Tokens v2.0.0 */
+:root {
+  --brand-primary: #ff2d55;
+  --brand-primary-glow: #ff2d5540;
+  --brand-secondary: #ffb703;
+  --brand-secondary-glow: #ffb70340;
+  --brand-metallic: #8f96a3;
+  --brand-bg: #060709;
+  --brand-surface: #12121c;
+  --brand-card: rgba(18, 18, 28, 0.85);
+  --brand-border: rgba(255, 255, 255, 0.08);
+  --brand-border-glow: #ff2d5560;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-glow: 0 0 24px var(--brand-primary-glow);
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.6);
+}

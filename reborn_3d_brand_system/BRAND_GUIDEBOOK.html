@@ -1,888 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARK REBORN 3D — Official Brand Identity & Design System Guidebook</title>
-    <link rel="icon" type="image/png" href="03_app_icons_favicons/favicon-32x32.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="07_design_tokens_and_code/brand_styles.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--dr-font-body);
-            background: var(--dr-bg-base);
-            color: #e0e4ec;
-            font-size: 17px;
-            line-height: 1.6;
-        }
-
-        /* TOP NAVIGATION */
-        .brand-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(6, 7, 9, 0.94);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--dr-border);
-            padding: 0 40px;
-            height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .brand-logo-lockup {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-        .brand-logo-lockup img {
-            height: 38px;
-            filter: drop-shadow(0 0 10px var(--dr-primary-glow));
-        }
-        .nav-sections {
-            display: flex;
-            gap: 25px;
-        }
-        .nav-sections a {
-            color: #8f96a3;
-            text-decoration: none;
-            font-family: var(--dr-font-display);
-            font-size: 0.82rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-        .nav-sections a:hover {
-            color: #fff;
-        }
-        .nav-action-btn {
-            background: linear-gradient(135deg, var(--dr-primary), var(--dr-primary-light));
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-family: var(--dr-font-display);
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: var(--dr-shadow-glow);
-        }
-
-        /* HERO HEADER */
-        .guide-hero {
-            padding: 100px 40px 80px;
-            text-align: center;
-            background: radial-gradient(circle at 50% 25%, rgba(184, 20, 20, 0.2) 0%, rgba(6, 7, 9, 0.98) 75%);
-            border-bottom: 1px solid var(--dr-border);
-            position: relative;
-        }
-        .badge-ver {
-            display: inline-block;
-            font-family: var(--dr-font-display);
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 6px 18px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--dr-border);
-            border-radius: 30px;
-            color: var(--dr-primary-light);
-            margin-bottom: 20px;
-        }
-        .guide-title {
-            font-family: var(--dr-font-display);
-            font-size: clamp(2.6rem, 5vw, 4.5rem);
-            font-weight: 900;
-            letter-spacing: 6px;
-            color: #ffffff;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px var(--dr-primary-glow);
-        }
-        .guide-subtitle {
-            color: #8f96a3;
-            font-size: 1.25rem;
-            max-width: 850px;
-            margin: 0 auto 40px;
-        }
-
-        /* LIVE BG SWITCHER BAR */
-        .bg-switcher-bar {
-            background: rgba(22, 26, 35, 0.8);
-            border: 1px solid var(--dr-border);
-            border-radius: 40px;
-            padding: 8px 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-        .bg-switcher-label {
-            font-family: var(--dr-font-display);
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #888;
-        }
-        .bg-btn {
-            border: none;
-            outline: none;
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: var(--dr-font-display);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: all 0.2s;
-        }
-        .bg-btn.active {
-            box-shadow: 0 0 10px var(--dr-primary-glow);
-            border: 1px solid var(--dr-primary);
-        }
-
-        /* MAIN CONTAINER */
-        .guide-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 40px;
-        }
-
-        .guide-section {
-            margin-bottom: 120px;
-        }
-        .section-header-wrap {
-            margin-bottom: 45px;
-        }
-        .section-num {
-            font-family: var(--dr-font-display);
-            font-size: 0.85rem;
-            color: var(--dr-primary-light);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .section-heading {
-            font-family: var(--dr-font-display);
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        .section-lead {
-            color: #8f96a3;
-            font-size: 1.15rem;
-            max-width: 900px;
-        }
-
-        /* ASSET MATRIX & CARDS */
-        .assets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .asset-card {
-            background: var(--dr-bg-elevated);
-            border: 1px solid var(--dr-border);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--dr-transition);
-        }
-        .asset-card:hover {
-            border-color: var(--dr-primary);
-            box-shadow: var(--dr-shadow-glow);
-            transform: translateY(-5px);
-        }
-        .asset-preview {
-            height: 240px;
-            background: #090a0d;
-            background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 20px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            border-bottom: 1px solid var(--dr-border);
-            position: relative;
-            transition: background 0.3s;
-        }
-        .asset-preview.bg-checkered {
-            background-color: #1a1c23;
-            background-image: linear-gradient(45deg, #12141a 25%, transparent 25%), 
-                              linear-gradient(-45deg, #12141a 25%, transparent 25%), 
-                              linear-gradient(45deg, transparent 75%, #12141a 75%), 
-                              linear-gradient(-45deg, transparent 75%, #12141a 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-        .asset-preview.bg-light {
-            background: #f0f2f6;
-        }
-        .asset-preview.bg-red {
-            background: #4a0808;
-        }
-        .asset-preview img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        .asset-card:hover .asset-preview img {
-            transform: scale(1.05);
-        }
-        .asset-details {
-            padding: 25px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .asset-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .asset-title {
-            font-family: var(--dr-font-display);
-            font-size: 1.15rem;
-            color: #fff;
-        }
-        .format-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            background: rgba(184, 20, 20, 0.2);
-            border: 1px solid rgba(184, 20, 20, 0.4);
-            color: #ff4d4d;
-            text-transform: uppercase;
-        }
-        .asset-desc {
-            color: #8f96a3;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-        .asset-btn-bar {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .btn-download {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--dr-border);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-family: var(--dr-font-display);
-            font-size: 0.78rem;
-            letter-spacing: 1px;
-            font-weight: 700;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .btn-download:hover {
-            background: var(--dr-primary);
-            border-color: var(--dr-primary);
-            box-shadow: 0 0 15px var(--dr-primary-glow);
-        }
-
-        /* COLOR SYSTEM */
-        .color-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-        }
-        .color-card {
-            background: var(--dr-bg-elevated);
-            border: 1px solid var(--dr-border);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-        .color-bar {
-            height: 120px;
-            width: 100%;
-            position: relative;
-        }
-        .color-info-body {
-            padding: 20px;
-        }
-        .color-title {
-            font-family: var(--dr-font-display);
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-        .color-detail-row {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #8f96a3;
-            margin-bottom: 6px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
-        .color-detail-row:last-child {
-            border-bottom: none;
-        }
-        .copy-hex {
-            color: var(--dr-primary-light);
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        /* TYPOGRAPHY */
-        .type-hierarchy-box {
-            background: var(--dr-bg-elevated);
-            border: 1px solid var(--dr-border);
-            border-radius: 16px;
-            padding: 40px;
-        }
-        .type-row {
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .type-row:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .type-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--dr-primary-light);
-            margin-bottom: 8px;
-        }
-
-        /* MOCKUPS SHOWCASE */
-        .mockups-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .mockup-item {
-            background: var(--dr-bg-elevated);
-            border: 1px solid var(--dr-border);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        .mockup-img-wrap {
-            width: 100%;
-            overflow: hidden;
-        }
-        .mockup-img-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        .mockup-item:hover .mockup-img-wrap img {
-            transform: scale(1.03);
-        }
-        .mockup-desc {
-            padding: 25px;
-        }
-        .mockup-title {
-            font-family: var(--dr-font-display);
-            font-size: 1.25rem;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        /* CODE & TOKENS */
-        .token-code-box {
-            background: #08090d;
-            border: 1px solid var(--dr-border);
-            border-radius: 12px;
-            padding: 25px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: #abb2bf;
-            overflow-x: auto;
-            line-height: 1.5;
-        }
-
-        footer {
-            border-top: 1px solid var(--dr-border);
-            padding: 60px 40px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMES REBORN · Molecular Brand Identity & Design System</title>
+  <link rel="icon" type="image/png" href="03_favicons_app_icons/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="06_design_tokens/brand_tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--brand-bg);
+      color: #f0f2f8;
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), #ff2d550d, transparent 80%);
+      z-index: 0;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    header {
+      text-align: center;
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid var(--brand-border);
+      margin-bottom: 3.5rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      background: #ff2d5515;
+      border: 1px solid var(--brand-primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-glow);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 30%, var(--brand-metallic));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    .subtitle {
+      color: #a0a4b8;
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--brand-border);
+      padding-bottom: 0.75rem;
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--brand-primary);
+      background: #ff2d5520;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--brand-card);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--brand-primary);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6), var(--shadow-glow);
+      transform: translateY(-4px);
+    }
+    .swatch {
+      height: 90px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: flex-end;
+      padding: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      color: #050811;
+      box-shadow: var(--shadow-glow);
+    }
+    .btn-primary:hover {
+      box-shadow: var(--shadow-glowStrong);
+      transform: scale(1.03);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border-color: var(--brand-border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--brand-primary);
+    }
+    .preview-img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--brand-border);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .code-box {
+      background: #050508;
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+  </style>
 </head>
 <body>
+  <div class="spotlight"></div>
+  <div class="container">
+    <header>
+      <div class="badge">MOLECULAR DESIGN SYSTEM · V2.0.0</div>
+      <h1>GAMES REBORN</h1>
+      <p class="subtitle">Next-Generation Multi-Realm MMORPG Gaming Platform — Full-Fidelity 3D Metallic Brand Standards & Asset Architecture</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="08_effects_showcase/index.html" class="btn btn-primary">⚡ Launch Live Effects Showcase</a>
+        <a href="05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary">Download 4K Wallpaper</a>
+        <a href="06_design_tokens/brand_tokens.json" target="_blank" class="btn btn-secondary">Inspect Tokens (JSON)</a>
+      </div>
+    </header>
 
-<nav class="brand-nav">
-    <a href="#" class="brand-logo-lockup">
-        <img src="01_vectors_svg/logo_horizontal_wordmark.svg" alt="Dark Reborn 3D">
-    </a>
-    <div class="nav-sections">
-        <a href="#vectors">Vector SVGs</a>
-        <a href="#pngs">4K PNGs</a>
-        <a href="#colors">Color System</a>
-        <a href="#typography">Typography</a>
-        <a href="#mockups">Mockups</a>
-        <a href="#code">Design Tokens</a>
+    <!-- SECTION 1: ATOMS -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 01</span> Atomic Tokens</h2>
+    <div class="grid-4">
+      <div class="card">
+        <div class="swatch" style="background: #ff2d55; color: #000;">#ff2d55</div>
+        <h3>Primary Neon</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Bevel glow, active links, laser borders</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #ffb703; color: #fff;">#ffb703</div>
+        <h3>Secondary Accent</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Dual-channel energy, flare highlights</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #8f96a3; color: #000;">#8F96A3</div>
+        <h3>Brushed Titanium</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">3D Chrome bevels & logotypes</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #08080c; color: #fff; border-color: rgba(255,255,255,0.3);">#08080C</div>
+        <h3>Obsidian Dark</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Carbon weave chassis & base background</p>
+      </div>
     </div>
-    <a href="reborn_prime_landing_page.html" class="nav-action-btn">Launch Live Landing Page →</a>
-</nav>
 
-<header class="guide-hero">
-    <span class="badge-ver">Brand Identity & Design System 2.0</span>
-    <h1 class="guide-title">Dark Reborn 3D System</h1>
-    <p class="guide-subtitle">100% Transparent Zero-Background Vector SVGs and 4K Renders for high-performance esports, web applications, and physical merch.</p>
-    
-    <div class="bg-switcher-bar">
-        <span class="bg-switcher-label">Test Background Transparency:</span>
-        <button class="bg-btn active" style="background:#090a0d; color:#fff;" onclick="setPreviewBg('dark', this)">Dark Grid</button>
-        <button class="bg-btn" style="background:#1a1c23; color:#ff3344;" onclick="setPreviewBg('checkered', this)">Checkerboard</button>
-        <button class="bg-btn" style="background:#f0f2f6; color:#111;" onclick="setPreviewBg('light', this)">Pure Light</button>
-        <button class="bg-btn" style="background:#4a0808; color:#fff;" onclick="setPreviewBg('red', this)">Crimson Glow</button>
+    <!-- SECTION 2: MOLECULES -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 02</span> Molecular Lockups & Badges</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="02_raster_png/logo_1024x1024.png" alt="3D Crest" class="preview-img">
+        <h3>Master 3D Metallic Shield Crest</h3>
+        <p style="font-size: 0.875rem; color: #a0a4b8; margin-bottom: 1rem;">
+          The primary visual mark featuring 3D sculpted monogram geometry, dual-channel edge lighting, and brushed titanium bevels.
+        </p>
+        <a href="02_raster_png/logo_2048x2048.png" target="_blank" class="btn btn-secondary" style="width: 100%;">Download High-Res Master PNG</a>
+      </div>
+
+      <div class="card">
+        <img src="04_social_media_kit/og_image_1200x630.jpg" alt="Widescreen Banner" class="preview-img">
+        <h3>16:9 Cinematic Widescreen Lockup</h3>
+        <p style="font-size: 0.875rem; color: #a0a4b8; margin-bottom: 1rem;">
+          Calibrated for high-density social headers (Twitter/X, Discord, YouTube) and 4K battlestation wallpapers.
+        </p>
+        <a href="05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary" style="width: 100%;">Download 4K Desktop Wallpaper</a>
+      </div>
     </div>
-</header>
 
-<main class="guide-container">
+    <!-- SECTION 3: ORGANISMS & TEMPLATES -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 03 & 04</span> Organisms & Asset Packages</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>🎨 Scalable Vector SVGs</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Clean-room SVG vector files with transparent backgrounds for responsive web and lasers.</p>
+        <div class="code-box">/01_vectors_svg/
+├── logo_primary_3d_crest.svg
+├── logo_horizontal_lockup.svg
+├── logo_monochrome_white.svg
+└── logo_monochrome_black.svg</div>
+      </div>
 
-    <!-- 1. VECTOR SVGS -->
-    <section class="guide-section" id="vectors">
-        <div class="section-header-wrap">
-            <span class="section-num">01 / Vector Assets</span>
-            <h2 class="section-heading">100% Transparent Vector SVGs</h2>
-            <p class="section-lead">Zero background pixels, clean transparent alpha cutouts, responsive viewboxes, and pixel-perfect 3D metallic textures.</p>
-        </div>
+      <div class="card">
+        <h3>📱 App Icons & Favicons</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Multi-size ICO bundle, iOS Apple Touch Icon, Android Chrome PWA manifests.</p>
+        <div class="code-box">/03_favicons_app_icons/
+├── favicon.ico (16-256px)
+├── apple-touch-icon.png
+├── android-chrome-192.png
+└── site.webmanifest</div>
+      </div>
 
-        <div class="assets-grid">
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_primary_3d_lockup.svg" alt="Primary 3D Shield Vector">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Primary 3D Shield Lockup</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">100% transparent zero-background SVG with 3D brushed titanium finish and ruby red neon laser glow.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_primary_3d_lockup.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
+      <div class="card">
+        <h3>🌐 Social Media Graphics</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Pixel-calibrated graphics for OpenGraph, Twitter, Discord, and streaming platforms.</p>
+        <div class="code-box">/04_social_media_kit/
+├── og_image_1200x630.jpg
+├── twitter_header_1500x500.jpg
+├── discord_avatar_512.png
+└── discord_banner_960.jpg</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_horizontal_wordmark.svg" alt="Horizontal Nav Wordmark">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Horizontal Header Wordmark</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Transparent wide header SVG formatted for navbars, live streams, and horizontal headers.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_horizontal_wordmark.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_crest_shield.svg" alt="Angular Cyber Crest">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Angular Cyber Shield Crest</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Standalone angular crest emblem with transparent edges and laser underglow.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_crest_shield.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_metallic_wordmark.svg" alt="3D Metallic Wordmark">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">3D Metallic Wordmark</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Beveled GAMES REBORN metallic logotype with 100% transparent background.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_metallic_wordmark.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_cyber_wing.svg" alt="Cyber Wing Badge">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Cyber Wing Badge</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Esports championship wing seal with transparent background.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_cyber_wing.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_monogram_icon.svg" alt="Monogram Squircle Icon">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Monogram Squircle Icon</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Squircle app icon monogram container with transparent outer boundary.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_monogram_icon.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="01_vectors_svg/logo_monochrome_white.svg" alt="Monochrome White">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Monochrome White</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Pure white vector mark with 100% transparent background for dark fabrics and laser cutting.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_monochrome_white.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview" style="background: #e5e8ef;">
-                    <img src="01_vectors_svg/logo_monochrome_black.svg" alt="Monochrome Black">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Monochrome Black</h4>
-                            <span class="format-badge">SVG Vector</span>
-                        </div>
-                        <p class="asset-desc">Pure black vector mark with 100% transparent background for light stationary and stamps.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="01_vectors_svg/logo_monochrome_black.svg" download class="btn-download">Download SVG ↓</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. HIGH RES 4K PNGS -->
-    <section class="guide-section" id="pngs">
-        <div class="section-header-wrap">
-            <span class="section-num">02 / High-Resolution Bitmaps</span>
-            <h2 class="section-heading">4K Transparent PNGs & Renders</h2>
-            <p class="section-lead">32-bit alpha channel cutouts rendered at up to 4096×4096 resolution for compositing on any background.</p>
-        </div>
-
-        <div class="assets-grid">
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="02_transparent_png/primary_logo_4k_transparent.png" alt="4K Transparent Shield">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Primary 3D Shield (4K)</h4>
-                            <span class="format-badge">4096×4096 PNG</span>
-                        </div>
-                        <p class="asset-desc">Ultra-high detail brushed metallic finish with transparent alpha channel.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="02_transparent_png/primary_logo_4k_transparent.png" download class="btn-download">Download 4K PNG ↓</a>
-                        <a href="02_transparent_png/primary_logo_2k_transparent.png" download class="btn-download">2K PNG</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="02_transparent_png/horizontal_nav_lockup.png" alt="3D Horizontal Lockup">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">3D Horizontal Lockup</h4>
-                            <span class="format-badge">PNG Cutout</span>
-                        </div>
-                        <p class="asset-desc">Faceted 3D emblem accompanied by GAMES REBORN typography.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="02_transparent_png/horizontal_nav_lockup.png" download class="btn-download">Download PNG ↓</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asset-card">
-                <div class="asset-preview">
-                    <img src="02_transparent_png/crest_shield.png" alt="Angular Cyber Crest">
-                </div>
-                <div class="asset-details">
-                    <div>
-                        <div class="asset-title-row">
-                            <h4 class="asset-title">Angular Cyber Crest</h4>
-                            <span class="format-badge">PNG Cutout</span>
-                        </div>
-                        <p class="asset-desc">High-speed esports badge with ruby underglow.</p>
-                    </div>
-                    <div class="asset-btn-bar">
-                        <a href="02_transparent_png/crest_shield.png" download class="btn-download">Download PNG ↓</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. COLOR SYSTEM -->
-    <section class="guide-section" id="colors">
-        <div class="section-header-wrap">
-            <span class="section-num">03 / Color Architecture</span>
-            <h2 class="section-heading">Official Color Palette & Swatches</h2>
-            <p class="section-lead">Calibrated specifications across Digital (HEX/RGB/HSL), Print (CMYK), and Physical Production (Pantone Matching System).</p>
-        </div>
-
-        <div class="color-matrix">
-            <div class="color-card">
-                <div class="color-bar" style="background: #b81414;"></div>
-                <div class="color-info-body">
-                    <h4 class="color-title">Ruby Laser Red</h4>
-                    <div class="color-detail-row"><span>HEX:</span><span class="copy-hex" onclick="navigator.clipboard.writeText('#b81414'); alert('Copied #b81414');">#b81414</span></div>
-                    <div class="color-detail-row"><span>RGB:</span><span>184, 20, 20</span></div>
-                    <div class="color-detail-row"><span>CMYK:</span><span>10, 98, 95, 20</span></div>
-                    <div class="color-detail-row"><span>Pantone:</span><span>PMS 186 C</span></div>
-                    <div class="color-detail-row"><span>Role:</span><span>Primary Brand Accent</span></div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="color-bar" style="background: #ff263b;"></div>
-                <div class="color-info-body">
-                    <h4 class="color-title">Electric Scarlet Flare</h4>
-                    <div class="color-detail-row"><span>HEX:</span><span class="copy-hex" onclick="navigator.clipboard.writeText('#ff263b'); alert('Copied #ff263b');">#ff263b</span></div>
-                    <div class="color-detail-row"><span>RGB:</span><span>255, 38, 59</span></div>
-                    <div class="color-detail-row"><span>CMYK:</span><span>0, 85, 77, 0</span></div>
-                    <div class="color-detail-row"><span>Pantone:</span><span>PMS Warm Red C</span></div>
-                    <div class="color-detail-row"><span>Role:</span><span>Glow & Laser Highlights</span></div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="color-bar" style="background: #8f96a3;"></div>
-                <div class="color-info-body">
-                    <h4 class="color-title">Brushed Steel 3D</h4>
-                    <div class="color-detail-row"><span>HEX:</span><span class="copy-hex" onclick="navigator.clipboard.writeText('#8f96a3'); alert('Copied #8f96a3');">#8f96a3</span></div>
-                    <div class="color-detail-row"><span>RGB:</span><span>143, 150, 163</span></div>
-                    <div class="color-detail-row"><span>CMYK:</span><span>35, 25, 20, 10</span></div>
-                    <div class="color-detail-row"><span>Pantone:</span><span>Cool Gray 8 C</span></div>
-                    <div class="color-detail-row"><span>Role:</span><span>Metallic Chrome Bevels</span></div>
-                </div>
-            </div>
-
-            <div class="color-card">
-                <div class="color-bar" style="background: #060709;"></div>
-                <div class="color-info-body">
-                    <h4 class="color-title">Obsidian Deep</h4>
-                    <div class="color-detail-row"><span>HEX:</span><span class="copy-hex" onclick="navigator.clipboard.writeText('#060709'); alert('Copied #060709');">#060709</span></div>
-                    <div class="color-detail-row"><span>RGB:</span><span>6, 7, 9</span></div>
-                    <div class="color-detail-row"><span>CMYK:</span><span>75, 68, 65, 90</span></div>
-                    <div class="color-detail-row"><span>Pantone:</span><span>Black 6 C</span></div>
-                    <div class="color-detail-row"><span>Role:</span><span>Foundation Background</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. TYPOGRAPHY -->
-    <section class="guide-section" id="typography">
-        <div class="section-header-wrap">
-            <span class="section-num">04 / Typography</span>
-            <h2 class="section-heading">Type Hierarchy & Fonts</h2>
-            <p class="section-lead">Futuristic geometry meets high-readability esports interface design.</p>
-        </div>
-
-        <div class="type-hierarchy-box">
-            <div class="type-row">
-                <div class="type-meta">DISPLAY / HEADINGS — Orbitron Black 900 (Letter-spacing: 4px–12px)</div>
-                <h1 style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 2.8rem; color: #fff; letter-spacing: 6px; text-transform: uppercase;">CONQUER THE REALM. REBORN.</h1>
-            </div>
-            <div class="type-row">
-                <div class="type-meta">SUBHEADINGS / BUTTONS — Orbitron Bold 700 (Letter-spacing: 2px)</div>
-                <h3 style="font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--dr-primary-light); letter-spacing: 2px; text-transform: uppercase;">NEXT-GENERATION TOURNAMENT MATCHMAKING</h3>
-            </div>
-            <div class="type-row">
-                <div class="type-meta">BODY COPY — Rajdhani Semi-Bold 600 (Line-height: 1.7)</div>
-                <p style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1.2rem; color: #bbb; max-width: 900px;">Engineered with aerospace-grade precision and ultra-low latency architecture. Dark Reborn 3D delivers unparalleled competitive edge across all global esports arenas and creator ecosystems.</p>
-            </div>
-            <div class="type-row">
-                <div class="type-meta">MONOSPACE / SYSTEM DATA — JetBrains Mono Regular 400</div>
-                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #8892a4;">SYSTEM STATUS: ONLINE // EDGE_NODES: 128 // PING: 12ms // PACKET_LOSS: 0.00%</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. REAL-WORLD PRODUCT & BATTLESTATION MOCKUPS -->
-    <section class="guide-section" id="mockups">
-        <div class="section-header-wrap">
-            <span class="section-num">05 / Product Applications</span>
-            <h2 class="section-heading">Photorealistic Mockups</h2>
-            <p class="section-lead">Studio-rendered mockups showcasing the brand applied to gaming battlestations, apparel, and wide cinematic headers.</p>
-        </div>
-
-        <div class="mockups-grid">
-            <div class="mockup-item">
-                <div class="mockup-img-wrap">
-                    <img src="06_merch_and_mockups/mockup_battlestation_desk_setup.png" alt="Battlestation Desk Setup">
-                </div>
-                <div class="mockup-desc">
-                    <h4 class="mockup-title">Cyberpunk Gaming Battlestation</h4>
-                    <p style="color:#8f96a3; font-size:0.95rem;">Curved OLED ultrawide monitor displaying the Dark Reborn UI with custom LED liquid cooling PC.</p>
-                </div>
-            </div>
-
-            <div class="mockup-item">
-                <div class="mockup-img-wrap">
-                    <img src="06_merch_and_mockups/mockup_esports_jersey_hoodie.png" alt="Esports Jersey & Hoodie">
-                </div>
-                <div class="mockup-desc">
-                    <h4 class="mockup-title">Official Performance Apparel</h4>
-                    <p style="color:#8f96a3; font-size:0.95rem;">Black athletic esports jersey and heavyweight hoodie with 3D metallic red chrome chest print.</p>
-                </div>
-            </div>
-
-            <div class="mockup-item" style="grid-column: span 2;">
-                <div class="mockup-img-wrap">
-                    <img src="06_merch_and_mockups/mockup_cinematic_5k_header.jpg" alt="5K Wide Cinematic Header">
-                </div>
-                <div class="mockup-desc">
-                    <h4 class="mockup-title">5K Ultra-HD Cinematic Hero Header</h4>
-                    <p style="color:#8f96a3; font-size:0.95rem;">5792×2896 master wide banner for full-screen hero headers, conference keynotes, and esports stages.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. CODE & DESIGN TOKENS -->
-    <section class="guide-section" id="code">
-        <div class="section-header-wrap">
-            <span class="section-num">06 / Developer & Designer Handoff</span>
-            <h2 class="section-heading">Design Tokens & Code Snippets</h2>
-            <p class="section-lead">Ready-to-use JSON design tokens, CSS variables, and Tailwind CSS configuration.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-                <h4 style="font-family: var(--dr-font-display); color:#fff; margin-bottom: 15px;">brand_tokens.json</h4>
-                <pre class="token-code-box">{
-  "brandName": "Dark Reborn 3D",
-  "colors": {
-    "primary": "#b81414",
-    "primaryLight": "#ff263b",
-    "titanium3D": "#8f96a3",
-    "backgroundBase": "#060709",
-    "surfaceCard": "#0f1218"
-  },
-  "fonts": {
-    "display": "'Orbitron', sans-serif",
-    "body": "'Rajdhani', sans-serif"
-  }
-}</pre>
-                <div style="margin-top: 15px;">
-                    <a href="07_design_tokens_and_code/brand_tokens.json" download class="btn-download">Download JSON Tokens ↓</a>
-                </div>
-            </div>
-
-            <div>
-                <h4 style="font-family: var(--dr-font-display); color:#fff; margin-bottom: 15px;">tailwind.config.js Preset</h4>
-                <pre class="token-code-box">module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        reborn: {
-          red: '#b81414',
-          scarlet: '#ff263b',
-          titanium: '#8f96a3',
-          obsidian: '#060709'
-        }
-      }
-    }
-  }
-}</pre>
-                <div style="margin-top: 15px;">
-                    <a href="07_design_tokens_and_code/brand_styles.css" download class="btn-download">Download CSS Stylesheet ↓</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    <p>© 2026 DARK REBORN 3D Brand System. Created and stored in <code>G:\Venice\reborn_3d_brand_system</code>.</p>
-</footer>
-
-<script>
-function setPreviewBg(mode, btn) {
-    document.querySelectorAll('.bg-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
-    document.querySelectorAll('.asset-preview').forEach(p => {
-        p.className = 'asset-preview';
-        if (mode === 'checkered') p.classList.add('bg-checkered');
-        else if (mode === 'light') p.classList.add('bg-light');
-        else if (mode === 'red') p.classList.add('bg-red');
-    });
-}
-</script>
-
+  <script>
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    }, { passive: true });
+  </script>
 </body>
 </html>

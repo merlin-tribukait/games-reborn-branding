@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMES REBORN · Interactive Visual & Audio Effects Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #08080c;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+    }
+    .scanlines {
+      position: fixed; inset: 0; pointer-events: none; z-index: 999;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 4px 100%;
+      opacity: 0.7;
+    }
+    .spotlight {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      background: radial-gradient(550px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), #ff2d5515, transparent 75%);
+    }
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; text-align: center; }
+    .subtitle { text-align: center; color: #8f96a3; margin-bottom: 3rem; font-family: 'JetBrains Mono', monospace; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .fx-card {
+      background: rgba(18, 18, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+    .fx-card:hover {
+      border-color: #ff2d55;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 24px #ff2d5540;
+    }
+    .fx-title { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff; }
+    .fx-desc { font-size: 0.875rem; color: #a0a4b8; line-height: 1.5; margin-bottom: 1rem; }
+    .btn {
+      background: #ff2d5520;
+      border: 1px solid #ff2d55;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: #ff2d55;
+      color: #000;
+      box-shadow: 0 0 16px #ff2d55;
+    }
+  </style>
+</head>
+<body>
+  <div class="scanlines" id="scanlines"></div>
+  <div class="spotlight"></div>
+  <div class="container">
+    <h1>GAMES REBORN</h1>
+    <p class="subtitle">INTERACTIVE FX SANDBOX · WEB AUDIO & 3D PARALLAX ENGINE</p>
+
+    <div class="grid">
+      <!-- Card 1: 3D Tilt -->
+      <div class="fx-card" id="card3d">
+        <h3 class="fx-title">⚡ 3D Parallax Tilt Physics</h3>
+        <p class="fx-desc">Hover over this card to activate dynamic 3D perspective pitch and roll spring physics.</p>
+        <span class="btn">Hover to Tilt</span>
+      </div>
+
+      <!-- Card 2: Web Audio Synthesizer -->
+      <div class="fx-card" id="audioCard">
+        <h3 class="fx-title">🔊 Web Audio Cyber Synth</h3>
+        <p class="fx-desc">Generates oscillator chords, laser frequency sweeps, and acoustic feedback in real time.</p>
+        <button class="btn" onclick="playSynthSound('chord')">Play Cyber Chime</button>
+        <button class="btn" onclick="playSynthSound('laser')">Fire Laser</button>
+      </div>
+
+      <!-- Card 3: CRT Scanlines Toggle -->
+      <div class="fx-card">
+        <h3 class="fx-title">📺 CRT Scanline Shaders</h3>
+        <p class="fx-desc">Toggle the retro phosphor monitor grid and chromatic aberration shader on/off.</p>
+        <button class="btn" onclick="toggleCRT()">Toggle CRT Filter</button>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="../BRAND_GUIDEBOOK.html" style="color: #ff2d55; text-decoration: none; font-family: 'JetBrains Mono', monospace;">← Return to Master Brand Guidebook</a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    });
+
+    const card = document.getElementById('card3d');
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      card.style.transform = `perspective(800px) rotateX(${-y * 0.08}deg) rotateY(${x * 0.08}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
+
+    let audioCtx = null;
+    function getAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playSynthSound(type) {
+      try {
+        const ctx = getAudio();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'laser') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.exponentialRampToValueAtTime(110, now + 0.2);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.2);
+          osc.start(now);
+          osc.stop(now + 0.2);
+        } else {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(880, now + 0.08);
+          osc.frequency.setValueAtTime(1174.66, now + 0.16);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        }
+      } catch(e) {}
+    }
+
+    function toggleCRT() {
+      const crt = document.getElementById('scanlines');
+      crt.style.display = crt.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

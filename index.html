@@ -1,514 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMES-REBORN | Brand Identity System, Brand Guide & Site Variants</title>
-    <link rel="icon" type="image/png" href="reborn_3d_brand_system/03_app_icons_favicons/favicon-32x32.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #060709;
-            --surface: #0d0f14;
-            --surface-card: #131720;
-            --border: rgba(255, 255, 255, 0.08);
-            --text-main: #f0f2f5;
-            --text-muted: #8e95a5;
-            --dr-red: #b81414;
-            --dr-glow: rgba(184, 20, 20, 0.45);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--bg);
-            color: var(--text-main);
-            overflow-x: hidden;
-            font-size: 17px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMES REBORN · Official 3D Brand System & Design Standards</title>
+  <link rel="icon" type="image/x-icon" href="reborn_3d_brand_system/03_favicons_app_icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="reborn_3d_brand_system/03_favicons_app_icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="reborn_3d_brand_system/03_favicons_app_icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="reborn_3d_brand_system/03_favicons_app_icons/apple-touch-icon.png">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="GAMES REBORN · Official 3D Brand System">
+  <meta property="og:description" content="Explore official 3D metallic Phoenix crest emblems, design tokens, 4K wallpapers, and vector assets for the GAMES REBORN Network.">
+  <meta property="og:image" content="reborn_3d_brand_system/04_social_media_kit/og_image_1200x630.jpg">
 
-        /* TOP FLAGSHIP HERO PROMO */
-        .brand-system-highlight {
-            background: linear-gradient(135deg, rgba(184, 20, 20, 0.25), rgba(6, 7, 9, 0.95)), #08090d;
-            border-bottom: 2px solid var(--dr-red);
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .brand-system-highlight::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: var(--dr-glow);
-            filter: blur(140px);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .flagship-badge {
-            display: inline-block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.82rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 6px 20px;
-            background: rgba(184, 20, 20, 0.25);
-            border: 1px solid var(--dr-red);
-            border-radius: 30px;
-            color: #ff3344;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        .flagship-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-            font-weight: 900;
-            letter-spacing: 6px;
-            color: #fff;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            text-shadow: 0 0 35px var(--dr-glow);
-        }
-        .flagship-desc {
-            color: #a2aab8;
-            font-size: 1.25rem;
-            max-width: 900px;
-            margin: 0 auto 35px;
-        }
-        .flagship-actions {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-        .btn-flagship {
-            background: linear-gradient(135deg, #b81414, #ff263b);
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            box-shadow: 0 0 30px var(--dr-glow);
-            transition: all 0.3s;
-        }
-        .btn-flagship:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.2);
-        }
-        .btn-outline {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .btn-outline:hover {
-            border-color: var(--dr-red);
-            color: #ff3344;
-            transform: translateY(-2px);
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #060709;
+      --bg-card: rgba(14, 15, 22, 0.88);
+      --bg-card-hover: rgba(22, 24, 35, 0.95);
+      --surface: #10121a;
+      
+      --accent-crimson: #ff2d55;
+      --accent-crimson-glow: rgba(255, 45, 85, 0.35);
+      --accent-amber: #ffb703;
+      --accent-amber-glow: rgba(255, 183, 3, 0.25);
+      --accent-titanium: #8f96a3;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(255, 45, 85, 0.4);
+      
+      --font-display: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+    }
 
-        /* BRAND SYSTEM QUICK SPECS */
-        .kit-pills-bar {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .kit-pill {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #ccc;
-            font-family: 'JetBrains Mono', monospace;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* VARIANTS GRID */
-        .variants-container {
-            max-width: 1400px;
-            margin: 60px auto 80px;
-            padding: 0 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-        }
-        .variant-card {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-        }
-        .variant-card:hover {
-            transform: translateY(-8px);
-        }
-        .variant-card.var-flagship:hover {
-            border-color: #b81414;
-            box-shadow: 0 20px 45px rgba(184, 20, 20, 0.35);
-        }
-        .variant-card.var-orange:hover {
-            border-color: #ff8c00;
-            box-shadow: 0 20px 45px rgba(255, 140, 0, 0.25);
-        }
-        .variant-card.var-crimson:hover {
-            border-color: #dc143c;
-            box-shadow: 0 20px 45px rgba(220, 20, 60, 0.25);
-        }
+    body {
+      background-color: var(--bg);
+      color: #f0f2f8;
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .variant-hero-preview {
-            height: 250px;
-            background: #090a0d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            border-bottom: 1px solid var(--border);
-        }
-        .variant-hero-preview img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        .variant-card:hover .variant-hero-preview img {
-            transform: scale(1.06);
-        }
+    /* Ambient Spotlight Follower */
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(650px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(255, 45, 85, 0.08), rgba(255, 183, 3, 0.03) 40%, transparent 80%);
+      z-index: 0;
+    }
 
-        .variant-body {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .variant-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .variant-tag {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 4px 12px;
-            border-radius: 6px;
-        }
-        .var-flagship .variant-tag { background: rgba(184, 20, 20, 0.2); color: #ff4d4d; border: 1px solid rgba(184, 20, 20, 0.3); }
-        .var-orange .variant-tag { background: rgba(255, 140, 0, 0.15); color: #ff8c00; border: 1px solid rgba(255, 140, 0, 0.3); }
-        .var-crimson .variant-tag { background: rgba(220, 20, 60, 0.15); color: #ff3355; border: 1px solid rgba(220, 20, 60, 0.3); }
+    /* Background Ambient Glows */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-orb-1 { top: -10%; left: 20%; width: 600px; height: 600px; background: var(--accent-crimson); }
+    .glow-orb-2 { bottom: 10%; right: 10%; width: 700px; height: 700px; background: var(--accent-amber); }
 
-        .variant-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .variant-desc {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        .btn-launch {
-            display: block;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        .var-flagship .btn-launch {
-            background: linear-gradient(135deg, #b81414, #ff263b);
-            box-shadow: 0 4px 20px rgba(184, 20, 20, 0.35);
-        }
-        .var-orange .btn-launch {
-            background: linear-gradient(135deg, #ff8c00, #ff4500);
-            box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3);
-        }
-        .var-crimson .btn-launch {
-            background: linear-gradient(135deg, #dc143c, #ff1e42);
-            box-shadow: 0 4px 20px rgba(220, 20, 60, 0.3);
-        }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
 
-        /* ASSETS INDEX */
-        .matrix-section {
-            padding: 60px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .matrix-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .matrix-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            color: #fff;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .matrix-table-wrap {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        th, td {
-            padding: 18px 24px;
-            border-bottom: 1px solid var(--border);
-        }
-        th {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #aaa;
-            background: rgba(255,255,255,0.02);
-        }
-        .asset-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .asset-link:hover {
-            color: #ff3344;
-            text-decoration: underline;
-        }
+    /* Top Navigation */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(6, 7, 9, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-crest-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent-crimson);
+      box-shadow: 0 0 14px var(--accent-crimson-glow);
+      overflow: hidden;
+      background: #000;
+    }
+    .brand-crest-icon img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      color: #fff;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+    }
+    .nav-link {
+      color: #a0a4b8;
+      font-size: 0.88rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: #fff; }
 
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-crimson), #c00028);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--accent-crimson-glow);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #ff4d70, #e60036);
+      box-shadow: 0 8px 30px rgba(255, 45, 85, 0.6);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-subtle);
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-crimson);
+      transform: translateY(-2px);
+    }
 
-        /* UNIFIED BRAND NAV */
-        .unified-nav {
-            background: #030406;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            padding: 0 30px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 9999;
-            font-family: 'Orbitron', sans-serif;
-            overflow-x: auto;
-        }
-        .unified-nav-label {
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            color: #555;
-            text-transform: uppercase;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .unified-nav-sep {
-            width: 1px;
-            height: 20px;
-            background: rgba(255,255,255,0.08);
-            flex-shrink: 0;
-        }
-        .unified-nav a {
-            font-size: 0.68rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #667;
-            text-decoration: none;
-            padding: 5px 12px;
-            border-radius: 14px;
-            transition: all 0.2s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .unified-nav a:hover {
-            color: #ccc;
-            background: rgba(255,255,255,0.05);
-        }
-        .unified-nav a.un-nav-active {
-            color: #fff;
-            background: rgba(184, 20, 20, 0.35);
-            border: 1px solid rgba(184, 20, 20, 0.5);
-        }
-    </style>
+    /* Hero Section */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-crest-wrap {
+      margin-bottom: 2rem;
+      display: inline-flex;
+      position: relative;
+    }
+    .hero-crest-badge {
+      width: clamp(140px, 20vw, 200px);
+      height: clamp(140px, 20vw, 200px);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--accent-crimson);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 40px var(--accent-crimson-glow);
+      background: #0a0b10;
+      padding: 8px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .hero-crest-badge:hover {
+      transform: scale(1.06) rotate(1deg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255, 45, 85, 0.7);
+    }
+    .hero-crest-badge img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: calc(var(--radius-lg) - 6px);
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-crimson);
+      background: rgba(255, 45, 85, 0.12);
+      border: 1px solid var(--accent-crimson);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 16px var(--accent-crimson-glow);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 30%, #ff859d 70%, var(--accent-crimson) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: #a0a4b8;
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Section Cards Grid */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 4.5rem 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.75rem;
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-crimson);
+      background: rgba(255, 45, 85, 0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.75rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-crimson);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px var(--accent-crimson-glow);
+      transform: translateY(-4px);
+    }
+    .card-preview {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc {
+      color: #8f96a3;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .swatch {
+      height: 85px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .code-tree {
+      background: #050508;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem;
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--accent-crimson);
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 4rem 0 2rem;
+      margin-top: 6rem;
+      background: #040507;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-link {
+      color: #a0a4b8;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .footer-link:hover { color: var(--accent-crimson); }
+    .footer-copy {
+      color: #555a6d;
+      font-size: 0.825rem;
+    }
+  </style>
 </head>
 <body>
+  <div class="spotlight"></div>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
 
-<nav class="unified-nav">
-    <span class="unified-nav-label">Brand System</span>
-    <span class="unified-nav-sep"></span>
-    <a href="index.html" class="un-nav-active">Master Hub</a>
-    <a href="BRAND_GUIDEBOOK.html">Brand Guidebook</a>
-    <a href="reborn_prime_landing_page.html">Flagship Landing</a>
-    <a href="variant1_orange_hex.html">Orange Ember</a>
-    <a href="variant2_red_shield.html">Crimson Shield</a>
-    <a href="variant3_dark_red.html">Dark Reborn 3D</a>
-</nav>
-
-<header class="brand-system-highlight">
-    <span class="flagship-badge">★ NEW BRAND SYSTEM RELEASED</span>
-    <h1 class="flagship-title">DARK REBORN 3D</h1>
-    <p class="flagship-desc">Complete multi-format brand kit with editable Vector SVGs, 4K Transparent PNGs, Favicon bundles, Omnichannel Social Kit, 4K Wallpapers, Battlestation mockups, and Design Tokens.</p>
-    
-    <div class="flagship-actions">
-        <a href="BRAND_GUIDEBOOK.html" class="btn-flagship">📖 Open Brand Identity Guidebook →</a>
-        <a href="reborn_prime_landing_page.html" class="btn-outline">🚀 Launch Flagship Landing Page</a>
-    </div>
-
-    <div class="kit-pills-bar">
-        <span class="kit-pill">📐 7 Scalable SVGs</span>
-        <span class="kit-pill">🖼️ 4K Transparent PNGs</span>
-        <span class="kit-pill">📱 iOS / Android 512px Icons</span>
-        <span class="kit-pill">🎨 CMYK & Pantone Calibrated</span>
-        <span class="kit-pill">💻 JSON & Tailwind Tokens</span>
-    </div>
-</header>
-
-<main class="variants-container">
-    <!-- FLAGSHIP: DARK REBORN 3D -->
-    <div class="variant-card var-flagship">
-        <div class="variant-hero-preview">
-            <img src="reborn_3d_brand_system/01_vectors_svg/logo_primary_3d_lockup.svg" alt="Dark Reborn 3D Vector">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">
+        <div class="brand-crest-icon">
+          <img src="reborn_3d_brand_system/02_raster_png/logo_128x128.png" alt="GR Crest">
         </div>
-        <div class="variant-body">
-            <div>
-                <div class="variant-meta">
-                    <span class="variant-tag">Flagship Brand</span>
-                    <span style="color:#ff4d4d; font-size:0.85rem; font-family:monospace;">Complete System</span>
-                </div>
-                <h2 class="variant-title">Dark Reborn 3D System</h2>
-                <p class="variant-desc">Ultra-premium brushed steel, beveled 3D lockups, 5K cinematic headers, photorealistic battlestation & hoodie mockups, and full design tokens.</p>
-            </div>
-            <a href="reborn_prime_landing_page.html" class="btn-launch">Launch Dark Reborn Flagship →</a>
+        <span class="brand-title">GAMES REBORN</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#assets" class="nav-link">Assets</a></li>
+        <li><a href="#tokens" class="nav-link">Tokens</a></li>
+        <li><a href="#showcase" class="nav-link">FX Sandbox</a></li>
+        <li><a href="https://games-reborn.com" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 1rem; font-size: 0.78rem;">Live Portal</a></li>
+        <li><a href="https://github.com/merlin-tribukait/games-reborn-branding" target="_blank" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.78rem;">GitHub Repo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-crest-wrap">
+        <div class="hero-crest-badge">
+          <img src="reborn_3d_brand_system/02_raster_png/logo_512x512.png" alt="Games Reborn 3D Phoenix Crest">
         </div>
+      </div>
+      <br>
+      <div class="badge-tag">DARK REBORN 3D MASTER SUITE · V2.0.0</div>
+      <h1 class="hero-title">GAMES REBORN</h1>
+      <p class="hero-subtitle">
+        Official Dark Reborn 3D Design System & Molecular Brand Architecture. Scalable vector graphics, 3D metallic crest emblems, 4K wallpapers, and production assets for the high-concurrency multi-realm network.
+      </p>
+      <div class="hero-actions">
+        <a href="reborn_3d_brand_system/08_effects_showcase/index.html" class="btn btn-primary">⚡ Launch Live FX Showcase</a>
+        <a href="reborn_3d_brand_system/05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary">Download 4K Wallpaper</a>
+        <a href="https://github.com/merlin-tribukait/games-reborn-branding" target="_blank" class="btn btn-secondary">View GitHub Repository</a>
+      </div>
+    </section>
+
+    <!-- SECTION 1: MASTER 3D BRAND EMBLEMS -->
+    <h2 class="section-title" id="assets"><span class="section-tag">01</span> Master 3D Brand Emblems</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="reborn_3d_brand_system/02_raster_png/logo_1024x1024.png" alt="3D Phoenix Crest" class="card-preview">
+        <h3 class="card-title">3D Phoenix Shield Crest (1:1)</h3>
+        <p class="card-desc">
+          Primary brand mark featuring sculpted titanium chrome **GR** monogram, armored cybernetic crest chassis, and laser-crimson edge illumination.
+        </p>
+        <a href="reborn_3d_brand_system/02_raster_png/logo_2048x2048.png" target="_blank" class="btn btn-secondary" style="width: 100%;">Download 2048px Master PNG</a>
+      </div>
+
+      <div class="card">
+        <img src="reborn_3d_brand_system/04_social_media_kit/og_image_1200x630.jpg" alt="16:9 Banner" class="card-preview">
+        <h3 class="card-title">16:9 Widescreen Battlestation Lockup</h3>
+        <p class="card-desc">
+          High-impact horizontal lockup designed for social headers (Twitter/X, Discord, YouTube) and 4K Ultra-HD gaming wallpapers.
+        </p>
+        <a href="reborn_3d_brand_system/05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary" style="width: 100%;">Download 4K Ultra-HD Wallpaper</a>
+      </div>
     </div>
 
-    <!-- SITE 1: ORANGE EMBER -->
-    <div class="variant-card var-orange">
-        <div class="variant-hero-preview">
-            <img src="brand_assets/orange_ember/01_primary_logo.png" alt="Orange Ember Primary Mark">
-        </div>
-        <div class="variant-body">
-            <div>
-                <div class="variant-meta">
-                    <span class="variant-tag">Variant 1</span>
-                    <span style="color:#ff8c00; font-size:0.85rem; font-family:monospace;">8 Assets</span>
-                </div>
-                <h2 class="variant-title">Orange Ember Cyber</h2>
-                <p class="variant-desc">High-energy cybernetic aesthetic utilizing radiant amber neon, hexagon geometry, and high-visibility digital esports branding.</p>
-            </div>
-            <a href="variant1_orange_hex.html" class="btn-launch">Launch Orange Ember Site →</a>
-        </div>
+    <!-- SECTION 2: MOLECULAR TOKENS -->
+    <h2 class="section-title" id="tokens"><span class="section-tag">02</span> Calibrated Design Tokens</h2>
+    <div class="grid-4">
+      <div class="card">
+        <div class="swatch" style="background: #ff2d55; color: #fff;">#FF2D55</div>
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff;">Laser Crimson</h4>
+        <p style="font-size: 0.8rem; color: #8f96a3;">Primary neon bevel glow & energy channels</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #ffb703; color: #000;">#FFB703</div>
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff;">Phoenix Gold</h4>
+        <p style="font-size: 0.8rem; color: #8f96a3;">Dual-channel flare & ambient highlight</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #8f96a3; color: #000;">#8F96A3</div>
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff;">Brushed Titanium</h4>
+        <p style="font-size: 0.8rem; color: #8f96a3;">3D metallic chrome chassis & logotypes</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #060709; color: #fff; border-color: rgba(255,255,255,0.3);">#060709</div>
+        <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff;">Obsidian Dark</h4>
+        <p style="font-size: 0.8rem; color: #8f96a3;">Carbon weave backdrop & page chassis</p>
+      </div>
     </div>
 
-    <!-- SITE 2: CRIMSON SHIELD -->
-    <div class="variant-card var-crimson">
-        <div class="variant-hero-preview">
-            <img src="brand_assets/crimson_shield/01_primary_logo.png" alt="Crimson Shield Primary Mark">
-        </div>
-        <div class="variant-body">
-            <div>
-                <div class="variant-meta">
-                    <span class="variant-tag">Variant 2</span>
-                    <span style="color:#ff3355; font-size:0.85rem; font-family:monospace;">11 Assets</span>
-                </div>
-                <h2 class="variant-title">Crimson Shield Esports</h2>
-                <p class="variant-desc">Aggressive tournament styling with glowing scarlet shields, spiky crown emblems, business cards, and performance merch.</p>
-            </div>
-            <a href="variant2_red_shield.html" class="btn-launch">Launch Crimson Shield Site →</a>
-        </div>
+    <!-- SECTION 3: REPOSITORY ASSET PACKAGES -->
+    <h2 class="section-title" id="showcase"><span class="section-tag">03</span> Molecular Asset Architecture</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3 class="card-title">🎨 Scalable Vector SVGs</h3>
+        <p class="card-desc">100% scalable SVG vector graphics with transparent alpha cutouts for web and lasers.</p>
+        <div class="code-tree">/01_vectors_svg/
+├── logo_primary_3d_crest.svg
+├── logo_horizontal_lockup.svg
+├── logo_monochrome_white.svg
+└── logo_monochrome_black.svg</div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">📱 App Icons & Favicons</h3>
+        <p class="card-desc">Multi-resolution ICO bundle, iOS Apple Touch Icon, and Android Chrome PWA manifests.</p>
+        <div class="code-tree">/03_favicons_app_icons/
+├── favicon.ico (16–256px)
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+└── site.webmanifest</div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">🌐 Social Graphics Suite</h3>
+        <p class="card-desc">Calibrated social media graphics for OpenGraph, Twitter/X, Discord, and streaming hubs.</p>
+        <div class="code-tree">/04_social_media_kit/
+├── og_image_1200x630.jpg
+├── twitter_header_1500x500.jpg
+├── discord_avatar_512x512.png
+└── discord_banner_960x540.jpg</div>
+      </div>
     </div>
-</main>
+  </div>
 
-<section class="matrix-section">
-    <div class="matrix-header">
-        <h2 class="matrix-title">Master Brand Index</h2>
-        <p style="color:var(--text-muted); font-size:1.1rem;">Quick access to all generated landing pages, brand books, and asset directories.</p>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://games-reborn.com" target="_blank" class="footer-link">games-reborn.com</a>
+        <a href="https://docs.merlin-tribukait.com" target="_blank" class="footer-link">docs.merlin-tribukait.com</a>
+        <a href="https://merlin-tribukait.com" target="_blank" class="footer-link">merlin-tribukait.com</a>
+        <a href="https://github.com/merlin-tribukait/games-reborn-branding" target="_blank" class="footer-link">GitHub Repository</a>
+      </div>
+      <p class="footer-copy">
+        © 2026 GAMES REBORN Network · Dark Reborn 3D Molecular Design System v2.0.0
+      </p>
     </div>
+  </footer>
 
-    <div class="matrix-table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Brand Project</th>
-                    <th>Destination URL / File</th>
-                    <th>Included Formats</th>
-                    <th>Quick Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background: rgba(184, 20, 20, 0.08);">
-                    <td><strong>★ Dark Reborn 3D Brand Guidebook</strong></td>
-                    <td><a href="BRAND_GUIDEBOOK.html" class="asset-link">BRAND_GUIDEBOOK.html ↗</a></td>
-                    <td>Interactive Guide, SVG, 4K PNG, Social, Mockups, Tokens</td>
-                    <td><a href="BRAND_GUIDEBOOK.html" class="asset-link" style="color:#ff3344;">Open Guidebook →</a></td>
-                </tr>
-                <tr>
-                    <td><strong>★ Dark Reborn Flagship Landing Page</strong></td>
-                    <td><a href="reborn_prime_landing_page.html" class="asset-link">reborn_prime_landing_page.html ↗</a></td>
-                    <td>HTML5, CSS3, Full Responsive Gaming UI</td>
-                    <td><a href="reborn_prime_landing_page.html" class="asset-link" style="color:#ff3344;">Launch Site →</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Orange Ember Landing Page</strong></td>
-                    <td><a href="variant1_orange_hex.html" class="asset-link">variant1_orange_hex.html ↗</a></td>
-                    <td>HTML5, PNG Brand Kit, Hex Swatches</td>
-                    <td><a href="variant1_orange_hex.html" class="asset-link">Launch Site →</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Crimson Shield Landing Page</strong></td>
-                    <td><a href="variant2_red_shield.html" class="asset-link">variant2_red_shield.html ↗</a></td>
-                    <td>HTML5, PNG Brand Kit, Merch Mockups</td>
-                    <td><a href="variant2_red_shield.html" class="asset-link">Launch Site →</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 DARK REBORN 3D Brand Ecosystem. All brand files generated in <code>G:\Veniceeborn_3d_brand_system</code>.</p>
-</footer>
-
+  <script>
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    }, { passive: true });
+  </script>
 </body>
 </html>

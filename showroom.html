@@ -366,11 +366,56 @@
       transform: translateY(-2px);
     }
 
-    /* Mobile Responsive */
+    /* Mobile Responsive Across All Viewports */
     @media (max-width: 900px) {
-      .showroom-arena { flex-direction: column; }
-      .battle-divider { display: none; }
-      .side-pane { padding: 2.5rem 1.5rem; }
+      .top-bar {
+        position: relative;
+        height: auto;
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .showroom-title {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+      }
+      .mode-switch-group {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .mode-btn {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.68rem;
+      }
+      .showroom-arena {
+        flex-direction: column;
+        padding-top: 0;
+      }
+      .battle-divider, .divider-badge { display: none; }
+      .side-pane {
+        padding: 2rem 1rem;
+        min-height: auto;
+      }
+      .crest-display {
+        height: 200px;
+      }
+      .crest-img-container {
+        width: 150px;
+        height: 150px;
+      }
+      .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+      .action-row {
+        flex-direction: column;
+        width: 100%;
+      }
+      .action-row a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>

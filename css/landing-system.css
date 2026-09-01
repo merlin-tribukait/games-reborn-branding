@@ -1,0 +1,42 @@
+
+/* Games Reborn Landing Page System */
+:root {
+    --gr-bg-base: #060709;
+    --gr-bg-panel: #0e0f16;
+    --gr-primary: #ff2a5f;
+    --gr-secondary: #00e5ff;
+    --gr-text-main: #e2e8f0;
+    --gr-text-muted: #808a9d;
+    --gr-border: #1a1d27;
+    --gr-font-head: 'Orbitron', sans-serif;
+    --gr-font-body: 'Rajdhani', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--gr-font-body); background: var(--gr-bg-base); color: var(--gr-text-main); line-height: 1.6; font-size: 18px; }
+
+.container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.section { padding: 120px 0; }
+
+h1, h2, h3 { font-family: var(--gr-font-head); text-transform: uppercase; margin-bottom: 24px; letter-spacing: 2px; }
+h1 { font-size: 5rem; line-height: 1; text-shadow: 0 0 20px rgba(255, 42, 95, 0.5); }
+h2 { font-size: 3rem; color: var(--gr-secondary); }
+
+.subtitle { font-size: 1.5rem; color: var(--gr-text-muted); margin-bottom: 40px; font-weight: 500; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px; border-radius: 4px; font-weight: 700; font-family: var(--gr-font-head); text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; border: none; cursor: pointer; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
+.btn-primary { background: var(--gr-primary); color: #fff; box-shadow: 0 0 15px rgba(255, 42, 95, 0.4); }
+.btn-primary:hover { background: #ff4777; box-shadow: 0 0 25px rgba(255, 42, 95, 0.7); }
+.btn-secondary { background: transparent; border: 2px solid var(--gr-secondary); color: var(--gr-secondary); }
+.btn-secondary:hover { background: rgba(0, 229, 255, 0.1); box-shadow: 0 0 15px rgba(0, 229, 255, 0.4); }
+
+.grid-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+.feature-box { background: var(--gr-bg-panel); border-left: 4px solid var(--gr-secondary); padding: 40px; transition: 0.3s; }
+.feature-box:hover { transform: translateX(10px); border-left-color: var(--gr-primary); background: #13151f; }
+
+nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--gr-border); }
+.nav-links { display: flex; gap: 40px; }
+.nav-links a { color: #fff; text-decoration: none; font-family: var(--gr-font-head); font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s; }
+.nav-links a:hover { color: var(--gr-primary); text-shadow: 0 0 8px var(--gr-primary); }
+
+.hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at center, rgba(255, 42, 95, 0.1) 0%, transparent 60%); }

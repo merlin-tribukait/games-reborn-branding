@@ -1,0 +1,90 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "GAMES REBORN",
+  "version": "2.0.0",
+  "color": {
+    "primary": {
+      "value": "#ff2d55",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#ffb703",
+      "type": "color"
+    },
+    "metallic": {
+      "value": "#8f96a3",
+      "type": "color"
+    },
+    "background": {
+      "value": "#060709",
+      "type": "color"
+    },
+    "surface": {
+      "value": "#12121c",
+      "type": "color"
+    },
+    "border": {
+      "value": "rgba(255, 255, 255, 0.08)",
+      "type": "color"
+    },
+    "textPrimary": {
+      "value": "#f0f2f8",
+      "type": "color",
+      "name": "Frost White Text",
+      "description": "Primary text color for headings and body copy on dark backgrounds"
+    },
+    "textSecondary": {
+      "value": "#8f96a3",
+      "type": "color",
+      "name": "Titanium Mist",
+      "description": "Secondary/muted text color for captions and metadata"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "sans": {
+        "value": "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+      },
+      "mono": {
+        "value": "JetBrains Mono, Menlo, monospace"
+      }
+    },
+    "scale": {
+      "xs": {
+        "value": "0.75rem"
+      },
+      "sm": {
+        "value": "0.875rem"
+      },
+      "base": {
+        "value": "1rem"
+      },
+      "lg": {
+        "value": "1.25rem"
+      },
+      "xl": {
+        "value": "1.5rem"
+      },
+      "2xl": {
+        "value": "2rem"
+      },
+      "3xl": {
+        "value": "2.5rem"
+      },
+      "4xl": {
+        "value": "3.5rem"
+      }
+    }
+  },
+  "shadows": {
+    "glow": {
+      "value": "0 0 24px #ff2d5540"
+    },
+    "glowStrong": {
+      "value": "0 0 36px #ff2d5580"
+    },
+    "card": {
+      "value": "0 16px 40px rgba(0, 0, 0, 0.6)"
+    }
+  }
+}
